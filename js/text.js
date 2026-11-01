@@ -1,0 +1,50 @@
+"use strict";
+// All interface text lives here
+const T = {
+  app: "Kimya Lab",
+  tagline: "Bileşik ve element ezberi",
+  firstTime: "İlk testini çöz, ilerlemen burada görünsün.",
+  totals: (n, p) => `${n} cevap · %${p} doğru`,
+  navHome: "Ana sayfa", navStudy: "Liste", navStats: "İstatistik",
+  modCompound: "Bileşikler", modElement: "Element sınıfları", elementsShort: "Elementler", tests: "Testler",
+  modCompoundSub: n => `${n} bileşik · formül ↔ yaygın ad`,
+  modElementSub: n => `${n} element · metal, yarı metal, ametal, soygaz`,
+  start: "Başla", weak: "Zayıflarım", weakCompounds: "zayıf bileşik", weakElements: "zayıf element", lastTest: "Son test",
+  direction: "Soru yönü", f2n: "Formül → Yaygın ad", n2f: "Yaygın ad → Formül", mix: "Karışık",
+  showName: "Element adı", nameShown: "Göster", nameHidden: "Gizle (zor)",
+  count: "Soru sayısı", all: n => `Hepsi (${n})`,
+  timer: "Süre", off: "Kapalı", secs: n => `${n} sn`,
+  askName: "Bu bileşiğin yaygın adı nedir?",
+  askFormula: "Yaygın adı bu olan bileşiğin formülü nedir?",
+  askClass: "Bu element hangi sınıfta?",
+  elementChip: "Element sınıfı",
+  elMeta: e => `${e.n} · Atom no ${e.z} · Kütle ${e.w}`,
+  qCount: (n, t) => `Soru ${n} / ${t}`, streak: n => `Seri ×${n}`, quit: "Testten çık",
+  correct: "Doğru!", wrong: "Yanlış", timeUp: "Süre doldu", next: "Devam",
+  done: "Test bitti", success: "başarı", duration: "süre",
+  yourAnswer: "Senin cevabın", rightAnswer: "Doğrusu", noAnswer: "süre doldu",
+  mistakes: "Yanlışların", noMistakes: "Hiç yanlış yok, tebrikler!",
+  redo: "Yanlışları tekrar çöz", newTest: "Yeni test", toStats: "İstatistiğe bak", toHome: "Ana sayfa",
+  answers: "cevap", correctN: "doğru", wrongN: "yanlış",
+  mostWrong: "En çok yanlış yaptıkların",
+  noStats: "Bu bölümde henüz cevap yok. Bir test çöz, kayıtlar burada görünsün.",
+  unseen: n => `${n} tanesi henüz hiç sorulmadı.`,
+  confCp: (name, k) => `${k} kez “${name}” ile karıştırdın`,
+  confEl: (k, cat) => `${k} kez “${cat}” dedin`,
+  noTests: "Henüz biten test yok.",
+  data: "Kayıtlar",
+  dataNote: "Kayıtlar bu cihazın tarayıcısında durur. Telefon değiştirmeden önce yedekle, yenisinde geri yükle.",
+  export: "Yedekle", import: "Geri yükle", reset: "Kayıtları sıfırla", resetConfirm: "Emin misin? Tüm kayıtlar silinir",
+  resetDone: "Kayıtlar silindi", importDone: "Yedek yüklendi", importFail: "Bu dosya okunamadı",
+  studyNote: "Karışan bileşikler yan yana. Teste girmeden önce bir göz at.",
+  emptyPool: "Bu testte sorulacak bir şey kalmadı.",
+  others: "Diğerleri",
+  ago: t => {
+    const d = Math.floor((startOfDay(Date.now()) - startOfDay(t)) / 864e5);
+    return d <= 0 ? "bugün" : d === 1 ? "dün" : `${d} gün önce`;
+  },
+  when: t => new Date(t).toLocaleString("tr-TR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }),
+  dur: s => s >= 60 ? `${Math.floor(s / 60)} dk ${s % 60} sn` : `${s} sn`,
+};
+
+function startOfDay(t) { const d = new Date(t); d.setHours(0, 0, 0, 0); return d.getTime(); }
